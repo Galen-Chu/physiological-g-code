@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physiological G-Code | DNA to Hexagram</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">
+                    <span class="dna-icon">🧬</span>
+                    Physiological G-Code
+                </h1>
+                <nav class="nav">
+                    <a href="#analyzer" class="nav-link">Sequence Analyzer</a>
+                    <a href="#hexagrams" class="nav-link">Hexagram Reference</a>
+                    <a href="#about" class="nav-link">About</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <h2 class="hero-title">Bridge Biology and Philosophy</h2>
+                    <p class="hero-subtitle">
+                        Explore the fascinating connection between DNA codons and I Ching hexagrams
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#analyzer" class="btn btn-primary">Analyze Sequence</a>
+                        <a href="#about" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sequence Analyzer -->
+            <section id="analyzer" class="section">
+                <div class="container">
+                    <h2 class="section-title">Sequence Analyzer</h2>
+                    <p class="section-description">
+                        Enter a DNA or RNA sequence to translate it into hexagrams and explore the patterns
+                    </p>
+
+                    <div class="analyzer-panel">
+                        <div class="input-group">
+                            <label for="sequence-input">DNA/RNA Sequence</label>
+                            <textarea
+                                id="sequence-input"
+                                class="sequence-input"
+                                placeholder="Enter your sequence here (e.g., ATGCGATAA...)"
+                                rows="5"
+                            ></textarea>
+                            <div class="input-hints">
+                                <span class="hint">Sequence must be a multiple of 3 nucleotides</span>
+                            </div>
+                        </div>
+
+                        <div class="controls-group">
+                            <div class="control">
+                                <label for="sequence-type">Sequence Type</label>
+                                <select id="sequence-type" class="select">
+                                    <option value="DNA">DNA</option>
+                                    <option value="RNA">RNA</option>
+                                </select>
+                            </div>
+
+                            <div class="control">
+                                <label for="mapping-scheme">Mapping Scheme</label>
+                                <select id="mapping-scheme" class="select">
+                                    <option value="scheme_1">Purine/Pyrimidine (Default)</option>
+                                    <option value="scheme_2">AT/GC Alternation</option>
+                                    <option value="scheme_3">Hydrogen Bond Count</option>
+                                    <option value="scheme_4">Molecular Weight</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="analyze-btn" class="btn btn-primary">
+                                <span class="btn-icon">⚡</span>
+                                Analyze Sequence
+                            </button>
+                            <button id="clear-btn" class="btn btn-secondary">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div id="results-container" class="results-container hidden">
+                        <div class="results-header">
+                            <h3>Analysis Results</h3>
+                            <button id="export-btn" class="btn btn-small">Export</button>
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-label">Sequence Length</div>
+                                <div class="stat-value" id="stat-length">0</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Codon Count</div>
+                                <div class="stat-value" id="stat-codons">0</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">GC Content</div>
+                                <div class="stat-value" id="stat-gc">0%</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Dominant Hexagram</div>
+                                <div class="stat-value" id="stat-dominant">-</div>
+                            </div>
+                        </div>
+
+                        <!-- Hexagram Visualization -->
+                        <div class="hexagram-visualization">
+                            <h4>Hexagram Sequence</h4>
+                            <div id="hexagram-sequence" class="hexagram-sequence"></div>
+                        </div>
+
+                        <!-- Amino Acid Translation -->
+                        <div class="amino-acids">
+                            <h4>Amino Acid Sequence</h4>
+                            <div id="amino-acid-sequence" class="amino-acid-sequence"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hexagram Reference -->
+            <section id="hexagrams" class="section section-alt">
+                <div class="container">
+                    <h2 class="section-title">Hexagram Reference</h2>
+                    <p class="section-description">
+                        Browse all 64 I Ching hexagrams
+                    </p>
+
+                    <div id="hexagram-grid" class="hexagram-grid">
+                        <!-- Hexagrams will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- About -->
+            <section id="about" class="section">
+                <div class="container">
+                    <h2 class="section-title">About Physiological G-Code</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>The Science-Philosophy Bridge</h3>
+                            <p>
+                                Physiological G-Code explores the fascinating parallel between two 64-state systems:
+                            </p>
+                            <ul>
+                                <li><strong>DNA Codons:</strong> 64 possible combinations of 4 nucleotides in triplets</li>
+                                <li><strong>I Ching Hexagrams:</strong> 64 combinations of 6 yin/yang lines</li>
+                            </ul>
+                            <p>
+                                Both systems encode fundamental information - one for biological life,
+                                the other for philosophical wisdom. This platform enables exploration of
+                                the patterns that emerge when we translate genetic sequences into hexagrams.
+                            </p>
+
+                            <h3>Mapping Schemes</h3>
+                            <p>
+                                Multiple mapping methodologies are available, each revealing different patterns:
+                            </p>
+                            <ul>
+                                <li><strong>Binary:</strong> Direct nucleotide-to-binary-to-hexagram conversion</li>
+                                <li><strong>Structural:</strong> Based on molecular properties and bonds</li>
+                                <li><strong>AI-Induced:</strong> Machine learning discovers optimal associations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Physiological G-Code. Bridging biology and philosophy.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/utils/api-client.js"></script>
+    <script src="/static/js/utils/hexagram-renderer.js"></script>
+    <script src="/static/js/components/sequence-analyzer.js"></script>
+    <script src="/static/js/components/hexagram-grid.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

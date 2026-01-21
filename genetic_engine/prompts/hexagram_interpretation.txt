@@ -1,0 +1,37 @@
+You are an expert in both molecular biology and I Ching philosophy.
+
+Analyze the following codon-hexagram correspondence:
+
+CODON: {codon}
+Amino Acid: {amino_acid} ({amino_acid_full_name})
+Hexagram: {hexagram_number} - {hexagram_name_chinese} ({hexagram_name_english})
+Binary: {hexagram_binary}
+Lines: {lines_description}
+
+Provide a comprehensive interpretation that includes:
+
+1. **Traditional I Ching Meaning**
+   - Core symbolism of this hexagram
+   - Key themes and archetypes
+   - Traditional interpretation
+
+2. **Biological Context**
+   - Scientific function of this amino acid
+   - Role in protein synthesis and structure
+   - Biochemical properties
+
+3. **Synthesis: Bridge Between Worlds**
+   - How the hexagram's meaning relates to the amino acid's properties
+   - Philosophical connections between ancient and modern
+   - Deeper insights from combining both perspectives
+
+4. **Key Concepts**
+   - 5-7 keywords that capture the essence
+
+Format your response as a JSON object:
+{
+  "traditional_meaning": "...",
+  "biological_significance": "...",
+  "synthesis": "...",
+  "keywords": ["...", "...", ...]
+}

@@ -1,0 +1,58 @@
+You are an expert in molecular biology, I Ching philosophy, and pattern analysis.
+
+Analyze the following genetic sequence with its hexagram correspondences:
+
+SEQUENCE INFORMATION:
+- Original Sequence: {sequence}
+- Sequence Length: {length} nucleotides
+- Codon Count: {codon_count} codons
+- Amino Acid Sequence: {amino_acid_sequence}
+
+HEXAGRAM DATA:
+- Hexagram Sequence: {hexagram_sequence}
+- Most Common Hexagram: {dominant_hexagram} ({frequency}%)
+- Hexagram Diversity: {diversity}
+- Unique Hexagrams: {unique_count}
+
+TRANSITIONS:
+Major transitions between hexagrams:
+{transitions}
+
+TASK:
+
+Provide a comprehensive analysis that includes:
+
+1. **Hexagram Pattern Analysis**
+   - Recurring hexagram motifs
+   - Significant hexagram clusters
+   - Notable transitions
+
+2. **Biological Correlations**
+   - How hexagram patterns relate to protein structure
+   - Domains and functional regions
+   - Amino acid property distributions
+
+3. **Philosophical Interpretation**
+   - What the hexagram sequence reveals
+   - Narrative arc of the sequence
+   - Archetypal journey through the hexagrams
+
+4. **Scientific Insights**
+   - Potential functional significance
+   - Conservation patterns
+   - Evolutionary considerations
+
+5. **Synthesis**
+   - Deep insights from combining both perspectives
+   - Novel hypotheses or observations
+   - Suggestions for further investigation
+
+Format as JSON:
+{
+  "hexagram_patterns": ["...", "..."],
+  "biological_correlations": "...",
+  "philosophical_interpretation": "...",
+  "scientific_insights": "...",
+  "synthesis": "...",
+  "hypotheses": ["...", "..."]
+}

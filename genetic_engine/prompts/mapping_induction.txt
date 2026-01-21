@@ -1,0 +1,71 @@
+You are an expert in molecular biology, I Ching philosophy, and pattern recognition.
+
+Your task is to induce an optimal mapping between DNA codons and I Ching hexagrams.
+
+CONTEXT:
+- There are 64 possible DNA codons (4^3 = 64)
+- There are 64 I Ching hexagrams (2^6 = 64)
+- Both systems have inherent binary/combinatorial structures
+- We seek meaningful associations between codons and hexagrams
+
+CONSIDERATIONS FOR MAPPING:
+
+1. **Binary Properties**
+   - Codons have 3 positions × 4 nucleotides = 12 bits of information
+   - Hexagrams have 6 positions × 2 states = 6 bits of information
+   - Consider how to compress 12 bits to 6 meaningfully
+
+2. **Nucleotide Properties**
+   - Purines (A, G) vs Pyrimidines (C, T/U)
+   - Strong bonds (3 H-bonds: G-C) vs Weak bonds (2 H-bonds: A-T)
+   - Molecular weight and chemical properties
+
+3. **Amino Acid Properties**
+   - Hydrophobic vs Hydrophilic
+   - Polar vs Non-polar
+   - Acidic vs Basic vs Neutral
+   - Essential vs Non-essential
+
+4. **Hexagram Properties**
+   - Lower trigram (lines 1-3) vs Upper trigram (lines 4-6)
+   - Yin/Yang balance
+   - Nuclear hexagram (lines 2-5)
+   - Complementary relationships
+
+5. **Philosophical Correspondences**
+   - Traditional Chinese five elements (wood, fire, earth, metal, water)
+   - Seasonal and directional associations
+   - Archetypal meanings
+
+CODONS TO MAP:
+{codon_list}
+
+EXISTING MAPPINGS (if any):
+{existing_mappings}
+
+TASK:
+Provide a comprehensive mapping scheme that includes:
+
+1. **Mapping Methodology**
+   - Explain your approach
+   - Justify your scheme philosophically and scientifically
+
+2. **Complete Mappings**
+   - Map all 64 codons to hexagrams (1-64)
+   - Format: {{"codon": "ATG", "hexagram": 1, "rationale": "..."}}
+
+3. **Validation**
+   - Explain why this mapping is meaningful
+   - Discuss patterns and symmetries
+   - Note any interesting correlations
+
+Format as JSON:
+{
+  "methodology": "...",
+  "mappings": [
+    {{"codon": "ATG", "hexagram": 1, "rationale": "..."}},
+    ...
+  ],
+  "patterns": ["...", "..."],
+  "validation": "..."
+}

@@ -14,6 +14,12 @@ from api.views import (
     CodonHexagramMappingViewSet,
     AnalysisViewSet,
 )
+# Phase 3: Enhanced Analysis
+from api.views.pattern_analysis import PatternAnalysisViewSet
+from api.views.comparative_analysis import ComparativeAnalysisViewSet
+from api.views.export_views import ExportViewSet
+from api.views.visualization_views import VisualizationViewSet
+
 from api.views.analysis import api_root
 
 # Create router
@@ -25,6 +31,12 @@ router.register(r'interpretations', HexagramInterpretationViewSet, basename='hex
 router.register(r'mappings', CodonHexagramMappingViewSet, basename='codonhexagrammapping')
 router.register(r'analysis', AnalysisViewSet, basename='analysis')
 
+# Phase 3: Enhanced Analysis
+router.register(r'patterns', PatternAnalysisViewSet, basename='pattern')
+router.register(r'comparative', ComparativeAnalysisViewSet, basename='comparative')
+router.register(r'export', ExportViewSet, basename='export')
+router.register(r'visualizations', VisualizationViewSet, basename='visualization')
+
 urlpatterns = [
     # API root
     path('', api_root, name='api-root'),
@@ -32,7 +44,7 @@ urlpatterns = [
     # Router endpoints
     path('', include(router.urls)),
 
-    # Authentication (to be added later)
+    # Authentication (to be added in Phase 4)
     # path('auth/', include('rest_framework.urls')),
 
     # Schema and documentation

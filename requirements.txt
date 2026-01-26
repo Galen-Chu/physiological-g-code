@@ -4,6 +4,7 @@ djangorestframework==3.14.0
 django-cors-headers==4.3.1
 django-crontab==0.7.1
 channels==4.0.0
+django-guardian==2.4.0  # Phase 4: Object-level permissions
 
 # Database
 psycopg2-binary==2.9.9
@@ -21,6 +22,8 @@ drf-spectacular==0.27.0
 djangorestframework-simplejwt==5.3.1
 django-allauth==0.60.1
 PyJWT==2.8.0
+django-otp==1.3.0  # Phase 4: Two-factor authentication
+django-simple-captcha==0.6.0  # Phase 4: CAPTCHA for registration
 
 # Google AI
 google-generativeai==0.3.2
@@ -33,6 +36,18 @@ httpx==0.26.0
 pandas==2.2.0
 numpy==1.26.3
 biopython==1.83
+
+# Phase 3: Advanced Analysis
+scipy==1.11.4  # Statistical analysis
+scikit-learn==1.3.2  # Machine learning metrics
+
+# Phase 3: Export/Visualization
+reportlab==4.0.7  # PDF generation
+matplotlib==3.8.2  # Server-side chart rendering
+
+# Content Processing (Phase 4)
+markdown==3.5.1  # Markdown processing
+bleach==6.1.0  # HTML sanitization
 
 # Date & Time
 python-dateutil==2.8.2

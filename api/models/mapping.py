@@ -128,18 +128,40 @@ class CodonHexagramMapping(models.Model):
         help_text='Whether this mapping is public',
     )
 
+    # ========== Community Features (Phase 4) ==========
+
+    # Voting
+    vote_score = models.IntegerField(
+        default=0,
+        help_text='Net vote score (upvotes - downvotes)',
+    )
+
+    # Forking
+    fork_count = models.IntegerField(
+        default=0,
+        help_text='Number of times this mapping has been forked',
+    )
+
+    # Usage statistics
+    usage_count = models.IntegerField(
+        default=0,
+        help_text='Number of times this mapping has been used',
+    )
+
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['-is_active', '-created_at']
+        ordering = ['-is_active', '-vote_score', '-created_at']
         verbose_name = 'Codon-Hexagram Mapping'
         verbose_name_plural = 'Codon-Hexagram Mappings'
         indexes = [
             models.Index(fields=['is_active']),
             models.Index(fields=['mapping_type']),
             models.Index(fields=['created_by']),
+            models.Index(fields=['-vote_score']),
+            models.Index(fields=['is_public', '-vote_score']),
         ]
 
     def __str__(self):

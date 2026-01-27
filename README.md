@@ -19,73 +19,19 @@ Both systems encode fundamental information - one for biological life, the other
 
 ---
 
-## 🎯 Features
+## 🎯 Key Features
 
-### 1. **Sequence Analysis** 🧬
-- Upload DNA/RNA sequences for translation
-- Automatic codon-to-hexagram mapping
-- Amino acid translation
-- GC content calculation
-- Dominant hexagram identification
+- **Sequence Analysis** - Upload DNA/RNA sequences for automatic codon-to-hexagram mapping, amino acid translation, and GC content calculation
+- **Multiple Mapping Schemes** - Binary, structural, hydrogen bond, and AI-induced mappings
+- **AI-Powered Interpretations** - Google Gemini integration for biological and philosophical insights
+- **Advanced Pattern Detection** - Position analysis, sliding windows, motif discovery, entropy metrics, and autocorrelation
+- **Comparative Analysis** - Statistical tests (chi-square, Fisher's exact, KS test), similarity metrics, and conservation analysis
+- **Interactive Visualizations** - Real-time Plotly.js charts (frequency, transitions, heatmaps, 3D, radar)
+- **Export Functionality** - CSV, JSON, FASTA, PDF reports, and batch exports
+- **RESTful API** - Complete CRUD with authentication, OpenAPI/Swagger documentation, and webhooks
+- **Community Features** - User profiles, discussions with voting, threaded comments, notifications, and API key management
 
-### 2. **Multiple Mapping Schemes** 🔄
-- **Binary**: Direct nucleotide-to-binary-to-hexagram conversion
-- **Structural**: Based on molecular properties (purine/pyrimidine)
-- **Hydrogen Bond**: Based on bond count (2 vs 3)
-- **AI-Induced**: Machine learning discovers optimal associations
-
-### 3. **AI-Powered Interpretations** 🤖
-- Google Gemini integration for generating interpretations
-- Biological significance analysis
-- Traditional I Ching meanings
-- Synthesis of ancient and modern wisdom
-
-### 4. **Advanced Pattern Analysis** 📊 (Phase 3)
-- Position-specific hexagram distribution analysis
-- Sliding window pattern detection
-- Motif discovery with configurable parameters
-- Conservation analysis across sequences
-- Information theory metrics (entropy, diversity)
-- Hexagram run detection
-- Autocorrelation analysis
-
-### 5. **Comparative Analysis** ⚖️ (Phase 3)
-- Side-by-side sequence comparison
-- Mapping scheme comparison
-- Statistical significance tests (chi-square, Fisher's exact, KS test)
-- Similarity metrics (Jaccard, cosine, overlap)
-- Multi-sequence alignment
-- Conserved region detection
-
-### 6. **Interactive Visualizations** 📈 (Phase 3)
-- Frequency distribution charts (bar, pie, donut)
-- Transition network visualization
-- Position vs hexagram heatmaps
-- 3D relationship projections
-- Radar chart comparisons
-- Sunburst hierarchical views
-- Real-time interactive charts with Plotly.js
-
-### 7. **Export Functionality** 💾 (Phase 3)
-- Export to CSV, JSON, FASTA formats
-- PDF report generation
-- Image export (PNG/SVG)
-- Batch export to multiple formats
-
-### 8. **RESTful API** 🔌
-- Complete CRUD operations for all entities
-- Authentication support
-- OpenAPI/Swagger documentation
-- Webhook support for real-time updates
-
-### 9. **Community Features** 👥 (Phase 4)
-- User profiles with reputation system
-- Discussion threads with voting
-- Threaded comments with mentions
-- Notification system
-- API key management for third-party integrations
-- Webhook system for event notifications
-- Badge system and achievements
+📖 **See [CHANGELOG.md](CHANGELOG.md) for detailed version history and feature releases.**
 
 ---
 
@@ -192,94 +138,41 @@ Visit `http://localhost:8000` in your browser.
 
 ## 📖 API Documentation
 
-### Authentication
-```
+Interactive API documentation is available at:
+- **Swagger UI**: `/api/schema/swagger/`
+- **ReDoc**: `/api/schema/redoc/`
+
+### Key Endpoints
+
+```bash
+# Authentication
 POST   /api/auth/register/
 POST   /api/auth/login/
-```
 
-### Analysis
-```
-POST   /api/analysis/analyze_codon/
-POST   /api/analysis/analyze_sequence/
-POST   /api/analysis/translate_codons/
-GET    /api/analysis/mapping_schemes/
-```
-
-### Codons
-```
+# Core Resources
 GET    /api/codons/
-GET    /api/codons/{id}/
-GET    /api/codons/start_codons/
-GET    /api/codons/stop_codons/
-GET    /api/codons/by_amino_acid/?code=M
-```
-
-### Hexagrams
-```
 GET    /api/hexagrams/
-GET    /api/hexagrams/{id}/
-GET    /api/hexagrams/{id}/codons/
-GET    /api/hexagrams/{id}/complementary/
-GET    /api/hexagrams/balanced/
-```
-
-### Sequences
-```
 GET    /api/sequences/
 POST   /api/sequences/analyze/
-GET    /api/sequences/{id}/statistics/
-```
-
-### Mappings
-```
 GET    /api/mappings/
-GET    /api/mappings/active/
-POST   /api/mappings/induce/
-POST   /api/mappings/{id}/activate/
-```
 
-### Pattern Analysis (Phase 3)
-```
+# Analysis
+POST   /api/analysis/analyze_sequence/
+POST   /api/analysis/analyze_codon/
+
+# Pattern Analysis
 POST   /api/patterns/position_analysis/
 POST   /api/patterns/sliding_window/
 POST   /api/patterns/motif_discovery/
-POST   /api/patterns/conservation/
-POST   /api/patterns/entropy/
-POST   /api/patterns/runs/
-POST   /api/patterns/correlation/
-```
 
-### Comparative Analysis (Phase 3)
-```
+# Comparative Analysis
 POST   /api/comparative/side_by_side/
-POST   /api/comparative/mapping_comparison/
 POST   /api/comparative/statistical_test/
-POST   /api/comparative/multiple_sequences/
-POST   /api/comparative/conserved_regions/
-```
 
-### Export (Phase 3)
+# Export & Visualizations
+POST   /api/export/{format}/
+POST   /api/visualizations/{type}/
 ```
-POST   /api/export/csv/
-POST   /api/export/json/
-POST   /api/export/fasta/
-POST   /api/export/pdf_data/
-POST   /api/export/batch/
-```
-
-### Visualizations (Phase 3)
-```
-POST   /api/visualizations/frequency/
-POST   /api/visualizations/transitions/
-POST   /api/visualizations/heatmap/
-POST   /api/visualizations/3d_relations/
-POST   /api/visualizations/radar/
-```
-
-Interactive documentation available at:
-- Swagger UI: `/api/schema/swagger/`
-- ReDoc: `/api/schema/redoc/`
 
 ---
 
@@ -429,40 +322,22 @@ pytest tests/test_genetic_engine.py
 
 ---
 
-## 📈 Roadmap
+## 📈 Version History
 
-### ✅ Phase 1: Foundation (Completed)
-- [x] Django project setup
-- [x] Database models (codons, hexagrams)
-- [x] Core translation algorithms
-- [x] REST API endpoints
-- [x] Basic frontend UI
+- **[1.2.0]** (2026-01-26) - Enhanced Analysis + Community Features
+- **[1.0.0]** (2026-01-21) - Foundation + AI Integration
 
-### ✅ Phase 2: AI Integration (Completed)
-- [x] Google Gemini integration
-- [x] Interpretation generation
-- [x] AI-induced mapping
-- [x] Prompt templates
+📖 **See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.**
 
-### ✅ Phase 3: Enhanced Analysis (Completed)
-- [x] Advanced pattern detection (position analysis, sliding window, motifs)
-- [x] Comparative analysis tools (sequence comparison, statistical tests)
-- [x] Export to various formats (CSV, JSON, FASTA, PDF)
-- [x] Interactive hexagram visualizations (Plotly.js charts)
+---
 
-### ✅ Phase 4: Community (Completed)
-- [x] User authentication with profiles
-- [x] Community discussion system with threaded comments
-- [x] Notification system
-- [x] Shared mapping schemes with voting
-- [x] API key system for third-party integrations
-- [x] Webhook system for event notifications
+## 🔮 What's Next?
 
-### 🔮 Phase 5: Future Enhancements
-- [ ] Mobile application
-- [ ] Real-time collaborative analysis
-- [ ] Advanced ML-based pattern recognition
-- [ ] Integration with genomic databases
+Planned features for future releases:
+- Mobile application
+- Real-time collaborative analysis
+- Advanced ML-based pattern recognition
+- Integration with genomic databases
 
 ---
 

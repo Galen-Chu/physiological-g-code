@@ -358,30 +358,41 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Galen Chu**
 
 - GitHub: [@Galen-Chu](https://github.com/Galen-Chu)
+- LinkedIn: [Galen Chu](https://www.linkedin.com/in/galen-chu-203590b5/)
 
 ---
 
 ## 🙏 Acknowledgments
 
 - **Google Gemini** - AI-powered content generation
-- **BioPython** - Biological sequence analysis
 - **Django & DRF** - Robust web framework
-- **I Ching tradition** - Ancient wisdom system
+- **The Open Source Community** - For all the amazing tools and libraries
 
 ---
 
 ## 📞 Contact & Support
 
-- 🐛 Issues: [GitHub Issues](https://github.com/Galen-Chu/physiological-g-code/issues)
-- 💡 Discussions: [GitHub Discussions](https://github.com/Galen-Chu/physiological-g-code/discussions)
+- 📧 Email: (coming soon)
+- 💬 Discord: (coming soon)
+- 🐛 Issues: [GitHub Issues](https://github.com/Galen-Chu/spiritual-g-code/issues)
+
+---
+
+## 🌟 Star History
+
+If you find this project interesting, please consider giving it a ⭐ star!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Galen-Chu/spiritual-g-code&type=Date)](https://star-history.com/#Galen-Chu/spiritual-g-code&Date)
 
 ---
 
 <div align="center">
 
-**🧬 Welcome to the crossroads of biology and philosophy.**
+**🔮 Welcome to the source code.**
 
-**Welcome to Physiological G-Code.**
+**Welcome to G-Code.**
+
+**Welcome home, Galen.**
 
 Made with ⚡ by Galen Chu
 

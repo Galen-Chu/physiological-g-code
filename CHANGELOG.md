@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-08-14
+
+### Fixed — critical blockers (the project previously crashed on `manage.py check`)
+- **`INSTALLED_APPS` referenced the pip package name** `djangorestframework` instead of the module name `rest_framework` — Django could not boot
+- **No migrations existed** for any of the 15 models (`api/migrations/` was absent entirely) — `migrate` was a no-op; initial migration now covers all models
+- **`LOGGING` file handler crashed** on a fresh clone because `logs/` did not exist — the settings now create the directory
+- **`django-filter` was missing from `requirements.txt`** despite being imported by 5 viewsets — added and pinned at 23.5
+- **`/api/docs/` route (coreapi) crashed** because `coreapi` is not installed — removed; Swagger/ReDoc via drf-spectacular are the documented API browsers
+- **`load_hexagrams` command only defined 6 of 64 hexagrams** (the data stopped at #6 with a "would include all 64" comment) — all 64 now present with correct trigram compositions and binaries
+- **`HexagramMapper.HEXAGRAM_BINARY_DATA` only had 8 of 64 entries** — all 64 now present
+- **`translate_codon` returned a hexagram number for invalid codons** (e.g. `XXX` → 1) instead of `None` — now validates length and character set
+- **`POST /api/analysis/analyze_sequence/` returned unserializable data** (tuple keys, model instances) causing a 500 — responses now pass through a JSON sanitizer
+
+### Added
+- **Auth endpoints**: `POST /api/auth/register/` (creates user + profile, returns JWT) and `POST /api/auth/login/` (simplejwt)
+- **Phase 4 Community API surface** (serializers + views + routes):
+  - `GET/PATCH /api/profiles/me/` + public `GET /api/profiles/` + `GET /api/profiles/{id}/`
+  - `CRUD /api/discussions/` + `POST /api/discussions/{id}/vote/` + `GET|POST /api/discussions/{id}/comments/`
+  - `GET/PATCH/DELETE /api/comments/{id}/` + `POST /api/comments/{id}/vote/` (threaded replies via `parent`)
+  - `GET /api/notifications/` + `POST /api/notifications/{id}/mark_read/` + `POST /api/notifications/mark_all_read/`
+  - `CRUD /api/api-keys/` (key shown once, SHA-256 at rest) + `POST …/revoke/` + `POST …/rotate/`
+  - `CRUD /api/webhooks/` (secret shown once) + `POST …/regenerate_secret/`
+  - Discussion author gets a notification when someone comments; comment/thread counters denormalized
+- **Test suite (`tests/`, 35 tests)**: genetic engine units (64-codon coverage, scheme compression, case-insensitivity, mapper round-trips) + auth flow + core-resource API + community CRUD/votes/notifications/keys/webhooks — the repo's first tests
+- **`LICENSE`** (MIT) and **`CONTRIBUTING.md`** — both were linked from the README but absent
+
 ## [Unreleased]
 
 ### Planned

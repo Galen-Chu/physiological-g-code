@@ -297,8 +297,7 @@ physiological_g_code/
 │           ├── hexagram-renderer.js
 │           └── plotly-wrapper.js     # Phase 3: Plotly.js wrapper
 │
-├── scripts/               # Utility scripts
-├── tests/                 # Test suite
+├── tests/                 # Test suite (35 tests: genetic engine + API + community)
 ├── docs/                  # Documentation
 ├── Dockerfile
 ├── docker-compose.yml
@@ -324,7 +323,8 @@ pytest tests/test_genetic_engine.py
 
 ## 📈 Version History
 
-- **[1.2.0]** (2026-01-26) - Enhanced Analysis + Community Features
+- **[1.3.0]** (2026-08-14) - Phase 4 Community API + auth endpoints + migrations + 35 tests + multiple critical fixes
+- **[1.2.0]** (2026-01-26) - Enhanced Analysis + Community data models
 - **[1.0.0]** (2026-01-21) - Foundation + AI Integration
 
 📖 **See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.**

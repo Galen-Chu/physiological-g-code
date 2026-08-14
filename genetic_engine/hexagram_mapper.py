@@ -22,15 +22,70 @@ class HexagramMapper:
     # I Ching binary representations (King Wen sequence)
     # Format: [bottom line, ..., top line] where 0=yin, 1=yang
     HEXAGRAM_BINARY_DATA = {
-        1: [1, 1, 1, 1, 1, 1],  # 乾 (Qián) - The Creative
-        2: [0, 0, 0, 0, 0, 0],  # 坤 (Kūn) - The Receptive
-        3: [1, 0, 0, 0, 0, 1],  # 屯 (Zhūn) - Difficulty at Beginning
-        4: [0, 1, 1, 1, 1, 0],  # 蒙 (Méng) - Youthful Folly
-        5: [0, 1, 1, 0, 1, 0],  # 需 (Xū) - Waiting
-        6: [0, 1, 0, 1, 1, 0],  # 訟 (Sòng) - Conflict
-        7: [0, 0, 0, 1, 0, 0],  # 師 (Shī) - The Army
-        8: [0, 0, 1, 0, 0, 0],  # 比 (Bǐ) - Holding Together
-        # ... (would include all 64 hexagrams)
+        1: [1, 1, 1, 1, 1, 1],  # Heaven/Heaven
+        2: [0, 0, 0, 0, 0, 0],  # Earth/Earth
+        3: [1, 0, 0, 0, 1, 0],  # Thunder/Water
+        4: [0, 1, 0, 0, 0, 1],  # Water/Mountain
+        5: [1, 1, 1, 0, 1, 0],  # Heaven/Water
+        6: [0, 1, 0, 1, 1, 1],  # Water/Heaven
+        7: [0, 1, 0, 0, 0, 0],  # Water/Earth
+        8: [0, 0, 0, 0, 1, 0],  # Earth/Water
+        9: [1, 1, 1, 0, 1, 1],  # Heaven/Wind
+        10: [1, 1, 0, 1, 1, 1],  # Lake/Heaven
+        11: [1, 1, 1, 0, 0, 0],  # Heaven/Earth
+        12: [0, 0, 0, 1, 1, 1],  # Earth/Heaven
+        13: [1, 0, 1, 1, 1, 1],  # Fire/Heaven
+        14: [1, 1, 1, 1, 0, 1],  # Heaven/Fire
+        15: [0, 0, 1, 0, 0, 0],  # Mountain/Earth
+        16: [0, 0, 0, 1, 0, 0],  # Earth/Thunder
+        17: [1, 0, 0, 1, 1, 0],  # Thunder/Lake
+        18: [0, 1, 1, 0, 0, 1],  # Wind/Mountain
+        19: [1, 1, 0, 0, 0, 0],  # Lake/Earth
+        20: [0, 0, 0, 0, 1, 1],  # Earth/Wind
+        21: [1, 0, 0, 1, 0, 1],  # Thunder/Fire
+        22: [1, 0, 1, 0, 0, 1],  # Fire/Mountain
+        23: [0, 0, 0, 0, 0, 1],  # Earth/Mountain
+        24: [1, 0, 0, 0, 0, 0],  # Thunder/Earth
+        25: [1, 0, 0, 1, 1, 1],  # Thunder/Heaven
+        26: [1, 1, 1, 0, 0, 1],  # Heaven/Mountain
+        27: [1, 0, 0, 0, 0, 1],  # Thunder/Mountain
+        28: [0, 1, 1, 1, 1, 0],  # Wind/Lake
+        29: [0, 1, 0, 0, 1, 0],  # Water/Water
+        30: [1, 0, 1, 1, 0, 1],  # Fire/Fire
+        31: [0, 0, 1, 1, 1, 0],  # Mountain/Lake
+        32: [0, 1, 1, 1, 0, 0],  # Wind/Thunder
+        33: [0, 0, 1, 1, 1, 1],  # Mountain/Heaven
+        34: [1, 1, 1, 1, 0, 0],  # Heaven/Thunder
+        35: [0, 0, 0, 1, 0, 1],  # Earth/Fire
+        36: [1, 0, 1, 0, 0, 0],  # Fire/Earth
+        37: [1, 0, 1, 0, 1, 1],  # Fire/Wind
+        38: [1, 1, 0, 1, 0, 1],  # Lake/Fire
+        39: [0, 0, 1, 0, 1, 0],  # Mountain/Water
+        40: [0, 1, 0, 1, 0, 0],  # Water/Thunder
+        41: [1, 1, 0, 0, 0, 1],  # Lake/Mountain
+        42: [1, 0, 0, 0, 1, 1],  # Thunder/Wind
+        43: [1, 1, 1, 1, 1, 0],  # Heaven/Lake
+        44: [0, 1, 1, 1, 1, 1],  # Wind/Heaven
+        45: [0, 0, 0, 1, 1, 0],  # Earth/Lake
+        46: [0, 1, 1, 0, 0, 0],  # Wind/Earth
+        47: [0, 1, 0, 1, 1, 0],  # Water/Lake
+        48: [0, 1, 1, 0, 1, 0],  # Wind/Water
+        49: [1, 0, 1, 1, 1, 0],  # Fire/Lake
+        50: [0, 1, 1, 1, 0, 1],  # Wind/Fire
+        51: [1, 0, 0, 1, 0, 0],  # Thunder/Thunder
+        52: [0, 0, 1, 0, 0, 1],  # Mountain/Mountain
+        53: [0, 0, 1, 0, 1, 1],  # Mountain/Wind
+        54: [1, 1, 0, 1, 0, 0],  # Lake/Thunder
+        55: [1, 0, 1, 1, 0, 0],  # Fire/Thunder
+        56: [0, 0, 1, 1, 0, 1],  # Mountain/Fire
+        57: [0, 1, 1, 0, 1, 1],  # Wind/Wind
+        58: [1, 1, 0, 1, 1, 0],  # Lake/Lake
+        59: [0, 1, 0, 0, 1, 1],  # Water/Wind
+        60: [1, 1, 0, 0, 1, 0],  # Lake/Water
+        61: [1, 1, 0, 0, 1, 1],  # Lake/Wind
+        62: [0, 0, 1, 1, 0, 0],  # Mountain/Thunder
+        63: [1, 0, 1, 0, 1, 0],  # Fire/Water
+        64: [0, 1, 0, 1, 0, 1],  # Water/Fire
     }
 
     # Trigram binary values

@@ -25,8 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangorestframework',
-    'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt',
     'django_crontab',
@@ -175,6 +174,12 @@ SPECTACULAR_SETTINGS = {
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
 
 # Logging
+# The file logging target must exist before Django configures logging,
+# otherwise the very first management command crashes on a fresh clone.
+import os as _os
+LOG_DIR = BASE_DIR / 'logs'
+_os.makedirs(LOG_DIR, exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -184,7 +189,7 @@ LOGGING = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'django.log',
+            'filename': LOG_DIR / 'django.log',
         },
     },
     'root': {

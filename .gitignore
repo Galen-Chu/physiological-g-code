@@ -42,3 +42,6 @@ htmlcov/
 
 # Docker
 docker-compose.override.yml
+
+# Runtime logs
+logs/

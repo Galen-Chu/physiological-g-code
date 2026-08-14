@@ -99,6 +99,11 @@ class CodonTranslator:
         Returns:
             Hexagram number (1-64) or None if invalid
         """
+        if not codon or len(codon) != 3:
+            return None
+        codon = codon.upper()
+        if any(base not in self.binary_map for base in codon):
+            return None
         binary = self.codon_to_binary(codon)
         return self.binary_to_hexagram_number(binary)
 

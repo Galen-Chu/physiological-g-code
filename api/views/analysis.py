@@ -8,6 +8,23 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from genetic_engine.genetic_analysis_service import GeneticAnalysisService
 
 
+def _sanitize_for_json(obj):
+    """Recursively convert tuple keys to strings and tuples to lists so DRF
+    can serialize analysis results (Counter/metric dicts use tuple keys).
+    Django model instances are reduced to their class name + pk."""
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            key = ':'.join(str(x) for x in k) if isinstance(k, tuple) else k
+            out[key] = _sanitize_for_json(v)
+        return out
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize_for_json(v) for v in obj]
+    if hasattr(obj, 'pk') and hasattr(obj, '_meta'):
+        return f'{type(obj).__name__}#{obj.pk}'
+    return obj
+
+
 class AnalysisViewSet(viewsets.ViewSet):
     """
     API endpoints for genetic-hexagram analysis.
@@ -100,7 +117,7 @@ class AnalysisViewSet(viewsets.ViewSet):
             save=True
         )
 
-        return Response(results)
+        return Response(_sanitize_for_json(results))
 
     @action(detail=False, methods=['post'], permission_classes=[AllowAny])
     def translate_codons(self, request):

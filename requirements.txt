@@ -1,6 +1,7 @@
 # Django
 Django==5.0.1
 djangorestframework==3.14.0
+django-filter==23.5
 django-cors-headers==4.3.1
 django-crontab==0.7.1
 channels==4.0.0

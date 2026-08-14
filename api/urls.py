@@ -3,7 +3,6 @@ URL configuration for Physiological G-Code API
 """
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from rest_framework.documentation import include_docs_urls
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 from api.views import (
@@ -21,6 +20,13 @@ from api.views.export_views import ExportViewSet
 from api.views.visualization_views import VisualizationViewSet
 
 from api.views.analysis import api_root
+# Phase 4: Auth + Community
+from api.views.auth import RegisterView, LoginView
+from api.views.user_profile import UserProfileViewSet
+from api.views.discussion import DiscussionViewSet, CommentViewSet
+from api.views.notification import NotificationViewSet
+from api.views.api_key import APIKeyViewSet
+from api.views.webhook import WebhookViewSet
 
 # Create router
 router = DefaultRouter()
@@ -37,6 +43,14 @@ router.register(r'comparative', ComparativeAnalysisViewSet, basename='comparativ
 router.register(r'export', ExportViewSet, basename='export')
 router.register(r'visualizations', VisualizationViewSet, basename='visualization')
 
+# Phase 4: Community
+router.register(r'profiles', UserProfileViewSet, basename='profile')
+router.register(r'discussions', DiscussionViewSet, basename='discussion')
+router.register(r'comments', CommentViewSet, basename='comment')
+router.register(r'notifications', NotificationViewSet, basename='notification')
+router.register(r'api-keys', APIKeyViewSet, basename='api-key')
+router.register(r'webhooks', WebhookViewSet, basename='webhook')
+
 urlpatterns = [
     # API root
     path('', api_root, name='api-root'),
@@ -44,12 +58,13 @@ urlpatterns = [
     # Router endpoints
     path('', include(router.urls)),
 
-    # Authentication (to be added in Phase 4)
-    # path('auth/', include('rest_framework.urls')),
+    # Authentication
+    path('auth/register/', RegisterView.as_view(), name='auth-register'),
+    path('auth/login/', LoginView.as_view(), name='auth-login'),
 
-    # Schema and documentation
+    # Schema and documentation (drf-spectacular; the legacy coreapi
+    # docs route was removed — coreapi is deprecated and uninstalled)
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('schema/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-schema'),
     path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc-schema'),
-    path('docs/', include_docs_urls(title='Physiological G-Code API')),
 ]

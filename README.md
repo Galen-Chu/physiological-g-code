@@ -389,11 +389,8 @@ If you find this project interesting, please consider giving it a ⭐ star!
 <div align="center">
 
 **🔮 Welcome to the source code.**
-
 **Welcome to G-Code.**
-
 **Welcome home, Galen.**
-
 Made with ⚡ by Galen Chu
 
 </div>
